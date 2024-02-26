@@ -17,7 +17,12 @@ void drawHorizontalLine(int length, char ch)
 }
 void drawVerticalLine(int height, char ch)
 {
+	assert(height> 0);
 	std::cout << "I am drawVerticalLine\n";
+	for (int i = 0; i < height; i++)
+	{
+		std::cout << ch << "\n";
+	}
 }
 void drawSquare(int size, char ch)
 {
@@ -28,6 +33,14 @@ void drawRectangle(int height, int length, char ch)
 	std::cout << "I am drawRectangle\n";
 }
 
+
+int getInt(const char* userPrompt)
+{
+	int number= 0;
+	std::cout << userPrompt;
+	std::cin >> number;
+	return number;
+}
 int main()
 {
 	std::cout << "Hello, traveller!\n";
@@ -43,11 +56,13 @@ int main()
 	std::cout << std::endl;
 	if (option == 1)
 	{
-		int length = 0;
-		std::cout << "Length:";
-		std::cin >> length;
-
+		int length  = getInt("Length:");
 		drawHorizontalLine(length,'*');
+	}
+	else if (option == 2)
+	{
+		int height = getInt("Height:");
+		drawVerticalLine(height, '*');
 	}
 	else
 	{
