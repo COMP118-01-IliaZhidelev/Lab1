@@ -1,9 +1,32 @@
 #include <iostream>
+#include <cassert>
+#include <string>
 
 void drawHorizontalLine(int length, char ch);
 void drawVerticalLine(int height, char ch);
 void drawSquare(int size , char ch);
 void drawRectangle(int height, int length, char ch);
+
+
+void drawHorizontalLine(int length, char ch)
+{
+	assert(length > 0);
+	std::cout << "I am drawHorizontalLine\n";
+	std::string line(length, ch);
+	std::cout << line << std::endl;
+}
+void drawVerticalLine(int height, char ch)
+{
+	std::cout << "I am drawVerticalLine\n";
+}
+void drawSquare(int size, char ch)
+{
+	std::cout << "I am drawSquare\n";
+}
+void drawRectangle(int height, int length, char ch)
+{
+	std::cout << "I am drawRectangle\n";
+}
 
 int main()
 {
@@ -17,6 +40,19 @@ int main()
 
 	int option = 0;
 	std::cout << "Enter your Option:"; std::cin >> option;
+	std::cout << std::endl;
+	if (option == 1)
+	{
+		int length = 0;
+		std::cout << "Length:";
+		std::cin >> length;
+
+		drawHorizontalLine(length,'*');
+	}
+	else
+	{
+		assert(false);
+	}
 
 
 
