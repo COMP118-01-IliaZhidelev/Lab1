@@ -1,13 +1,18 @@
 #include <iostream>
 #include <cassert>
 #include <sstream>
+#include <cstdlib>
+#include <ctime>
+#include <sstream>
 
 void drawHorizontalLine(int length, char ch);
 void drawVerticalLine(int height, char ch);
 void drawSquare(int size , char ch);
 void drawRectangle(int height, int length, char ch);
 
-
+/*
+* Example: #####
+*/
 void drawHorizontalLine(int length, char ch)
 {
 	assert(length > 0);
@@ -15,6 +20,14 @@ void drawHorizontalLine(int length, char ch)
 	std::string line(length, ch);
 	std::cout << line << std::endl;
 }
+/*
+* Example:
+	#
+	#
+	#
+	#
+	#
+*/
 void drawVerticalLine(int height, char ch)
 {
 	assert(height> 0);
@@ -24,7 +37,9 @@ void drawVerticalLine(int height, char ch)
 		std::cout << ch << "\n";
 	}
 }
-// example: *             *
+/*
+* Example: #    #
+*/
 void drawLineEmpty(int length,char ch)
 {
 	std::stringstream ss;
@@ -35,6 +50,15 @@ void drawLineEmpty(int length,char ch)
 	std::cout << ch;
 	std::cout << std::endl;
 }
+/*
+* Example: 
+	######
+	#    #
+	#    #
+	#    #
+	#    #
+	######
+*/
 void drawSquare(int size, char ch)
 {
 	assert(size> 0);
@@ -57,6 +81,13 @@ void drawSquare(int size, char ch)
 
 
 }
+/*
+* Example:
+	######
+	#    #
+	#    #
+	######
+*/
 void drawRectangle(int height, int length, char ch)
 {
 	assert(height> 0 && length > 0);
@@ -73,8 +104,90 @@ void drawRectangle(int height, int length, char ch)
 	std::string bottomLine(length, ch);
 	std::cout << bottomLine << std::endl;
 }
+/*
+* returns int in range [downLimit, upLimit]
+*/
+int randomIntRange(const int downLimit, const int upLimit)
+{
+	
+	int randomValue = downLimit + rand() % (upLimit - downLimit + 1);
+	return randomValue;
+}
+/*
+* returns random int 
+*/
+int randomInt(const int limit)
+{
+	
+	int randomValue = rand() % limit;
+	return randomValue;
+}
+/*
+* draws random shapes
+*/
+void drawShapes(int numShapes)
+{
+	const int MAX_SHAPES_AMOUNT = 10;
+	std::stringstream ss;
+	ss << "Cannot draw more than " << MAX_SHAPES_AMOUNT;
+	assert(MAX_SHAPES_AMOUNT >= numShapes && ss.str().c_str());
+	srand(time(NULL));
+	for (int i = 0; i < numShapes; i++)
+	{
+		const int MAX_LENGTH = 6 - 1;
+		auto shapeType = randomInt(4);
+		char character = randomIntRange(33,126);
+		// certainly not the best "robust" way to do it
+		if (shapeType == 0)
+		{
+			auto length = randomInt(MAX_LENGTH);
+			while (length == 0)
+			{
+				length = randomInt(MAX_LENGTH);
+			}
+			drawHorizontalLine(length, character);
+		}
+		else if (shapeType == 1)
+		{
+			auto height= randomInt(MAX_LENGTH);
+			while (height == 0)
+			{
+				height = randomInt(MAX_LENGTH);
+			}
+			drawVerticalLine(height, character);
+		}
+		else if (shapeType == 2)
+		{
+			auto size = randomInt(MAX_LENGTH);
+			while (size  <  2)
+			{
+				size = randomInt(MAX_LENGTH);
+			}
+
+			drawSquare(size, character);
+		}
+		else if (shapeType == 3)
+		{
+			auto width = randomInt(MAX_LENGTH);
+			auto height = randomInt(MAX_LENGTH);
+			while (width < 2 || height  < 2)
+			{
+				width = randomInt(MAX_LENGTH);
+				height = randomInt(MAX_LENGTH);
+			}
+			drawRectangle(height,width, character);
+		}
+		else
+		{
+			assert(false && "Unknown type");
+		}
+	}
 
 
+}
+/*
+* asks user for int input
+*/
 int getInt(const char* userPrompt)
 {
 	int number= 0;
@@ -90,36 +203,51 @@ int main()
 	std::cout << "2) Draw a vertical line\n";
 	std::cout << "3) Draw a square\n";
 	std::cout << "4) Draw a rectangle\n";
-	std::cout << "5) Quit\n";
+	std::cout << "5) Draw randoms\n";
+	std::cout << "6) Quit\n";
 
-	int option = 0;
-	std::cout << "Enter your Option:"; std::cin >> option;
-	std::cout << std::endl;
-	if (option == 1)
+	auto isRunning = true;
+	while (isRunning)
 	{
-		int length  = getInt("Length:");
-		drawHorizontalLine(length,'*');
+		int option = 0;
+		std::cout << "Enter your Option:"; std::cin >> option;
+		std::cout << std::endl;
+		if (option == 1)
+		{
+			int length = getInt("Length:");
+			drawHorizontalLine(length, '*');
+		}
+		else if (option == 2)
+		{
+			int height = getInt("Height:");
+			drawVerticalLine(height, '*');
+		}
+		else if (option == 3)
+		{
+			int size = getInt("Size:");
+			drawSquare(size, '*');
+		}
+		else if (option == 4)
+		{
+			int width = getInt("Width:");
+			int length = getInt("Length:");
+			drawRectangle(length, width, '*');
+		}
+		else if (option == 5)
+		{
+			int shapeAmount = getInt("Shapes amount:");
+			drawShapes(shapeAmount);
+		}
+		else if (option == 6)
+		{
+			isRunning = false;
+		}
+		else
+		{
+			std::cout <<"could not parse input\n";
+		}
 	}
-	else if (option == 2)
-	{
-		int height = getInt("Height:");
-		drawVerticalLine(height, '*');
-	}
-	else if (option == 3)
-	{
-		int size = getInt("Size:");
-		drawSquare(size, '*');
-	}
-	else if (option == 4)
-	{
-		int width= getInt("Width:");
-		int length = getInt("Length:");
-		drawRectangle(length, width, '*');
-	}
-	else
-	{
-		assert(false && "could not parse input");
-	}
+	
 
 
 
