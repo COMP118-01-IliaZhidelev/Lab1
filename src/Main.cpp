@@ -59,7 +59,19 @@ void drawSquare(int size, char ch)
 }
 void drawRectangle(int height, int length, char ch)
 {
+	assert(height> 0 && length > 0);
 	std::cout << "I am drawRectangle\n";
+	//first line
+	std::string topLine(length, ch);
+	std::cout << topLine << std::endl;
+
+	for (int i = 0; i < height  -2 ; i++)
+	{
+		drawLineEmpty(length - 2, ch);
+	}
+
+	std::string bottomLine(length, ch);
+	std::cout << bottomLine << std::endl;
 }
 
 
@@ -97,6 +109,12 @@ int main()
 	{
 		int size = getInt("Size:");
 		drawSquare(size, '*');
+	}
+	else if (option == 4)
+	{
+		int width= getInt("Width:");
+		int length = getInt("Length:");
+		drawRectangle(length, width, '*');
 	}
 	else
 	{
