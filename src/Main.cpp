@@ -5,15 +5,15 @@
 #include <ctime>
 #include <sstream>
 
-void drawHorizontalLine(int length, char ch);
-void drawVerticalLine(int height, char ch);
-void drawSquare(int size , char ch);
-void drawRectangle(int height, int length, char ch);
+void drawHorizontalLine(const int length, const char ch);
+void drawVerticalLine(const int height, const char ch);
+void drawSquare(const int size , const char ch);
+void drawRectangle(const int height, const int length, const char ch);
 
 /*
 * Example: #####
 */
-void drawHorizontalLine(int length, char ch)
+void drawHorizontalLine(const int length, const char ch)
 {
 	assert(length > 0);
 	std::cout << "I am drawHorizontalLine\n";
@@ -28,7 +28,7 @@ void drawHorizontalLine(int length, char ch)
 	#
 	#
 */
-void drawVerticalLine(int height, char ch)
+void drawVerticalLine(const int height, const char ch)
 {
 	assert(height> 0);
 	std::cout << "I am drawVerticalLine\n";
@@ -40,7 +40,7 @@ void drawVerticalLine(int height, char ch)
 /*
 * Example: #    #
 */
-void drawLineEmpty(int length,char ch)
+void drawLineEmpty(const int length,const char ch)
 {
 	std::stringstream ss;
 	std::cout << ch;
@@ -59,7 +59,7 @@ void drawLineEmpty(int length,char ch)
 	#    #
 	######
 */
-void drawSquare(int size, char ch)
+void drawSquare(const int size,const  char ch)
 {
 	assert(size> 0);
 	std::cout << "I am drawSquare\n";
@@ -88,7 +88,7 @@ void drawSquare(int size, char ch)
 	#    #
 	######
 */
-void drawRectangle(int height, int length, char ch)
+void drawRectangle(const int height,const  int length,const  char ch)
 {
 	assert(height> 0 && length > 0);
 	std::cout << "I am drawRectangle\n";
@@ -125,7 +125,7 @@ int randomInt(const int limit)
 /*
 * draws random shapes
 */
-void drawShapes(int numShapes)
+void drawShapes(const int numShapes)
 {
 	const int MAX_SHAPES_AMOUNT = 10;
 	std::stringstream ss;
