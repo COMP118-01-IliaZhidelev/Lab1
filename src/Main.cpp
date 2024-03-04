@@ -1,7 +1,12 @@
-/*
-	Ilia Zhidelev, U234N1818
+/** \file Main.cpp
+* \brief It draws shapes such as rectangles,
+	horizontal or vertical lines, squares on terminal.
+* \details User is prompted to choose shape, its parametrs, symbol of drawing.
+* \author Ilia Zhidelev
+* \version 0.1
+* \date 04.03.2024
+* \copyright GNU Public License.
 */
-
 #include <iostream>
 #include <cassert>
 #include <sstream>
@@ -9,14 +14,64 @@
 #include <ctime>
 #include <sstream>
 
+
+
+
+
+/**
+* draws a horizontal line with a specified character
+\verbatim
+ Example: #####
+\endverbatim
+* @param length: how long line is 
+* @param ch: a specified character
+*/
 void drawHorizontalLine(const int length, const char ch);
+/**
+* draws a horizontal line with a specified character
+\verbatim
+ Example:
+	#
+	#
+	#
+	#
+	#
+\endverbatim
+* @param length: how long line is
+* @param ch: a specified character
+*/
 void drawVerticalLine(const int height, const char ch);
+
+
+/**
+* draws a square with a specified character
+\verbatim
+ Example:
+	####
+	#  #
+	#  #
+	####
+\endverbatim
+* @param size: width and height of a square 
+* @param ch: a specified character
+*/
 void drawSquare(const int size , const char ch);
+/**
+* draws a square with a specified character
+\verbatim
+ Example:
+	#########
+	#		#
+	#		#
+	#########
+\endverbatim
+* @param height: how tall a rectangle is 
+* @param length: how wide a rectangle is 
+* @param ch: a specified character
+*/
 void drawRectangle(const int height, const int length, const char ch);
 
-/*
-* Example: #####
-*/
+
 void drawHorizontalLine(const int length, const char ch)
 {
 	assert(length > 0);
@@ -24,14 +79,7 @@ void drawHorizontalLine(const int length, const char ch)
 	std::string line(length, ch);
 	std::cout << line << std::endl;
 }
-/*
-* Example:
-	#
-	#
-	#
-	#
-	#
-*/
+
 void drawVerticalLine(const int height, const char ch)
 {
 	assert(height> 0);
@@ -41,8 +89,14 @@ void drawVerticalLine(const int height, const char ch)
 		std::cout << ch << "\n";
 	}
 }
-/*
-* Example: #    #
+
+/**
+* draws an empty line with a specified character
+\verbatim
+ Example: #    #
+\endverbatim
+* @param length: how long a line is 
+* @param ch: a specified character
 */
 void drawLineEmpty(const int length,const char ch)
 {
@@ -54,15 +108,7 @@ void drawLineEmpty(const int length,const char ch)
 	std::cout << ch;
 	std::cout << std::endl;
 }
-/*
-* Example: 
-	######
-	#    #
-	#    #
-	#    #
-	#    #
-	######
-*/
+
 void drawSquare(const int size,const  char ch)
 {
 	assert(size> 0);
@@ -85,13 +131,7 @@ void drawSquare(const int size,const  char ch)
 
 
 }
-/*
-* Example:
-	######
-	#    #
-	#    #
-	######
-*/
+
 void drawRectangle(const int height,const  int length,const  char ch)
 {
 	assert(height> 0 && length > 0);
@@ -108,26 +148,30 @@ void drawRectangle(const int height,const  int length,const  char ch)
 	std::string bottomLine(length, ch);
 	std::cout << bottomLine << std::endl;
 }
-/*
+/**
 * returns int in range [downLimit, upLimit]
+* @param downLimit: start of range included
+* @param upLimit: end of range included
+* @return returns a random int in specified range
 */
 int randomIntRange(const int downLimit, const int upLimit)
 {
-	
 	int randomValue = downLimit + rand() % (upLimit - downLimit + 1);
 	return randomValue;
 }
-/*
-* returns random int 
-*/
 int randomInt(const int limit)
 {
 	
 	int randomValue = rand() % limit;
 	return randomValue;
 }
-/*
-* draws random shapes
+
+
+
+
+/**
+* draws random shapers with random parameters, uses draw functions to draw shapes
+* @param numShapes: amount of shapes to draw
 */
 void drawShapes(const int numShapes)
 {
@@ -189,8 +233,11 @@ void drawShapes(const int numShapes)
 
 
 }
-/*
-* asks user for int input
+/**
+* draws random shapers with random parameters, uses draw functions to draw shapes.
+* it doesn't validate input
+* @param userPrompt: a prompt hint for a user
+* @return an integer user is prompted
 */
 int getInt(const char* userPrompt)
 {
@@ -199,6 +246,7 @@ int getInt(const char* userPrompt)
 	std::cin >> number;
 	return number;
 }
+// entry point
 int main()
 {
 	std::cout << "Hello, traveller!\n";
