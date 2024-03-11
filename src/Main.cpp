@@ -18,6 +18,8 @@
 
 
 
+
+
 /**
 * draws a horizontal line with a specified character
 \verbatim
@@ -246,17 +248,82 @@ int getInt(const char* userPrompt)
 	std::cin >> number;
 	return number;
 }
+
+
+/**
+* Fills array shapeTy with values 1 - 3, to indicate which shape type to print
+* Fills array shapeLen with values 1 - 20, the length of the shape
+* Fills array shapeCh with values from the printable ASCII table, i.e. 33 - 126
+* @param shapeTy: a type of shape
+* @param shapeLen: length of shape to be drawn
+* @param shapeCh: character that will be drawn
+* @param arrSuze: the length of parameters
+*/
+void initializeArrays(int shapeTy[], int shapeLen[], char shapeCh[], const int arrSize)
+{
+	for (int i = 0; i < arrSize; i++)
+	{
+		shapeTy[i] = randomIntRange(1,3);
+		shapeLen[i] = randomIntRange(1, 20);
+		shapeCh[i] = randomIntRange(33, 126);
+	}
+}
+
+
+/**
+* 
+* Loops and prints all the shapes that are specified in the arrays	
+* initializeArrays must be called prior to this function
+* @param shapeTy: a type of shape
+* @param shapeLen: length of shape to be drawn
+* @param shapeCh: character that will be drawn
+* @param arrSuze: the length of parameters
+*/
+
+void drawArrays(int shapeTy[], int shapeLen[], char shapeCh[], const int arrSize)
+{
+	for (int i = 0; i < arrSize; i++)
+	{
+		auto option = shapeTy[i];
+		auto ch = shapeCh[i];
+		if (option == 1)
+		{
+			int length = shapeLen[i];
+			drawHorizontalLine(length, ch);
+		}
+		else if (option == 2)
+		{
+			int height = shapeLen[i];
+			drawVerticalLine(height, ch);
+		}
+		else if (option == 3)
+		{
+			int size = shapeLen[i];
+			drawSquare(size, ch);
+		}
+
+	}
+}
+
+
 // entry point
 int main()
 {
-	std::cout << "Hello, traveller!\n";
 
+	const int MAX_ARRAY = 10;
+	int shapeTy[MAX_ARRAY];
+	int shapeLen[MAX_ARRAY];
+	char shapeCh[MAX_ARRAY];
+	initializeArrays(shapeTy,shapeLen,shapeCh,MAX_ARRAY);
+
+	std::cout << "Hello, traveller!\n";
 	std::cout << "1) Draw a horizontal line\n";
 	std::cout << "2) Draw a vertical line\n";
 	std::cout << "3) Draw a square\n";
 	std::cout << "4) Draw a rectangle\n";
 	std::cout << "5) Draw randoms\n";
-	std::cout << "6) Quit\n";
+	std::cout << "6) Draw 10 random shapes with random character\n";
+	std::cout << "7) Quit\n";
 
 	auto isRunning = true;
 	while (isRunning)
@@ -291,6 +358,10 @@ int main()
 			drawShapes(shapeAmount);
 		}
 		else if (option == 6)
+		{
+			drawArrays( shapeTy,shapeLen, shapeCh, MAX_ARRAY);
+		}
+		else if (option == 7)
 		{
 			isRunning = false;
 		}

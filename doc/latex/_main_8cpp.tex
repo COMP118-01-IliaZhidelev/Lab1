@@ -32,6 +32,10 @@ void \mbox{\hyperlink{_main_8cpp_a90c5b61205a5ed02e9901c05bb9f7689}{draw\+Shapes
 \item 
 int \mbox{\hyperlink{_main_8cpp_ae25c956e5eb9e67b54006a1a6859b4ef}{get\+Int}} (const char \texorpdfstring{$\ast$}{*}user\+Prompt)
 \item 
+void \mbox{\hyperlink{_main_8cpp_a8b6a5ab6ff5d6b1a53d0dd992bba396c}{initialize\+Arrays}} (int shape\+Ty\mbox{[}$\,$\mbox{]}, int shape\+Len\mbox{[}$\,$\mbox{]}, char shape\+Ch\mbox{[}$\,$\mbox{]}, const int arr\+Size)
+\item 
+void \mbox{\hyperlink{_main_8cpp_a3b347c76c95bdd56f838638cf32d02d0}{draw\+Arrays}} (int shape\+Ty\mbox{[}$\,$\mbox{]}, int shape\+Len\mbox{[}$\,$\mbox{]}, char shape\+Ch\mbox{[}$\,$\mbox{]}, const int arr\+Size)
+\item 
 \Hypertarget{_main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\label{_main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4} 
 int {\bfseries main} ()
 \end{DoxyCompactItemize}
@@ -55,6 +59,24 @@ GNU Public License.
 
 
 \doxysubsection{Function Documentation}
+\Hypertarget{_main_8cpp_a3b347c76c95bdd56f838638cf32d02d0}\label{_main_8cpp_a3b347c76c95bdd56f838638cf32d02d0} 
+\index{Main.cpp@{Main.cpp}!drawArrays@{drawArrays}}
+\index{drawArrays@{drawArrays}!Main.cpp@{Main.cpp}}
+\doxysubsubsection{\texorpdfstring{drawArrays()}{drawArrays()}}
+{\footnotesize\ttfamily void draw\+Arrays (\begin{DoxyParamCaption}\item[{int}]{shape\+Ty\mbox{[}$\,$\mbox{]},  }\item[{int}]{shape\+Len\mbox{[}$\,$\mbox{]},  }\item[{char}]{shape\+Ch\mbox{[}$\,$\mbox{]},  }\item[{const int}]{arr\+Size }\end{DoxyParamCaption})}
+
+Loops and prints all the shapes that are specified in the arrays ~\newline
+ initialize\+Arrays must be called prior to this function 
+\begin{DoxyParams}{Parameters}
+{\em shape\+Ty} & a type of shape \\
+\hline
+{\em shape\+Len} & length of shape to be drawn \\
+\hline
+{\em shape\+Ch} & character that will be drawn \\
+\hline
+{\em arr\+Suze} & the length of parameters \\
+\hline
+\end{DoxyParams}
 \Hypertarget{_main_8cpp_a5b84ca2f6863eb57595194d58a03155e}\label{_main_8cpp_a5b84ca2f6863eb57595194d58a03155e} 
 \index{Main.cpp@{Main.cpp}!drawHorizontalLine@{drawHorizontalLine}}
 \index{drawHorizontalLine@{drawHorizontalLine}!Main.cpp@{Main.cpp}}
@@ -170,6 +192,23 @@ draws random shapers with random parameters, uses draw functions to draw shapes.
 \begin{DoxyReturn}{Returns}
 an integer user is prompted 
 \end{DoxyReturn}
+\Hypertarget{_main_8cpp_a8b6a5ab6ff5d6b1a53d0dd992bba396c}\label{_main_8cpp_a8b6a5ab6ff5d6b1a53d0dd992bba396c} 
+\index{Main.cpp@{Main.cpp}!initializeArrays@{initializeArrays}}
+\index{initializeArrays@{initializeArrays}!Main.cpp@{Main.cpp}}
+\doxysubsubsection{\texorpdfstring{initializeArrays()}{initializeArrays()}}
+{\footnotesize\ttfamily void initialize\+Arrays (\begin{DoxyParamCaption}\item[{int}]{shape\+Ty\mbox{[}$\,$\mbox{]},  }\item[{int}]{shape\+Len\mbox{[}$\,$\mbox{]},  }\item[{char}]{shape\+Ch\mbox{[}$\,$\mbox{]},  }\item[{const int}]{arr\+Size }\end{DoxyParamCaption})}
+
+Fills array shape\+Ty with values 1 -\/ 3, to indicate which shape type to print Fills array shape\+Len with values 1 -\/ 20, the length of the shape Fills array shape\+Ch with values from the printable ASCII table, i.\+e. 33 -\/ 126 
+\begin{DoxyParams}{Parameters}
+{\em shape\+Ty} & a type of shape \\
+\hline
+{\em shape\+Len} & length of shape to be drawn \\
+\hline
+{\em shape\+Ch} & character that will be drawn \\
+\hline
+{\em arr\+Suze} & the length of parameters \\
+\hline
+\end{DoxyParams}
 \Hypertarget{_main_8cpp_a59f1050a19e0717bcfef0a5eef8fff3b}\label{_main_8cpp_a59f1050a19e0717bcfef0a5eef8fff3b} 
 \index{Main.cpp@{Main.cpp}!randomIntRange@{randomIntRange}}
 \index{randomIntRange@{randomIntRange}!Main.cpp@{Main.cpp}}

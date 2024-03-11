@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.10.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Lab-2: src/Main.cpp File Reference</title>
+<title>My Project: src/Main.cpp File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -23,7 +23,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Lab-2
+   <div id="projectname">My Project
    </div>
   </td>
  </tr>
@@ -110,6 +110,10 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>randomInt</b> (const i
 <tr class="separator:a90c5b61205a5ed02e9901c05bb9f7689"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae25c956e5eb9e67b54006a1a6859b4ef" id="r_ae25c956e5eb9e67b54006a1a6859b4ef"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae25c956e5eb9e67b54006a1a6859b4ef">getInt</a> (const char *userPrompt)</td></tr>
 <tr class="separator:ae25c956e5eb9e67b54006a1a6859b4ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8b6a5ab6ff5d6b1a53d0dd992bba396c" id="r_a8b6a5ab6ff5d6b1a53d0dd992bba396c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8b6a5ab6ff5d6b1a53d0dd992bba396c">initializeArrays</a> (int shapeTy[], int shapeLen[], char shapeCh[], const int arrSize)</td></tr>
+<tr class="separator:a8b6a5ab6ff5d6b1a53d0dd992bba396c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3b347c76c95bdd56f838638cf32d02d0" id="r_a3b347c76c95bdd56f838638cf32d02d0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3b347c76c95bdd56f838638cf32d02d0">drawArrays</a> (int shapeTy[], int shapeLen[], char shapeCh[], const int arrSize)</td></tr>
+<tr class="separator:a3b347c76c95bdd56f838638cf32d02d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae66f6b31b5ad750f1fe042a706a4e3d4" id="r_ae66f6b31b5ad750f1fe042a706a4e3d4"><td class="memItemLeft" align="right" valign="top"><a id="ae66f6b31b5ad750f1fe042a706a4e3d4" name="ae66f6b31b5ad750f1fe042a706a4e3d4"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><b>main</b> ()</td></tr>
 <tr class="separator:ae66f6b31b5ad750f1fe042a706a4e3d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -121,6 +125,47 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>main</b> ()</td></tr>
 <dl class="section date"><dt>Date</dt><dd>04.03.2024 </dd></dl>
 <dl class="section copyright"><dt>Copyright</dt><dd>GNU Public License. </dd></dl>
 </div><h2 class="groupheader">Function Documentation</h2>
+<a id="a3b347c76c95bdd56f838638cf32d02d0" name="a3b347c76c95bdd56f838638cf32d02d0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3b347c76c95bdd56f838638cf32d02d0">&#9670;&#160;</a></span>drawArrays()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void drawArrays </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>shapeTy</em>[], </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>shapeLen</em>[], </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char</td>          <td class="paramname"><span class="paramname"><em>shapeCh</em>[], </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int</td>          <td class="paramname"><span class="paramname"><em>arrSize</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Loops and prints all the shapes that are specified in the arrays <br  />
+ initializeArrays must be called prior to this function </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">shapeTy</td><td>a type of shape </td></tr>
+    <tr><td class="paramname">shapeLen</td><td>length of shape to be drawn </td></tr>
+    <tr><td class="paramname">shapeCh</td><td>character that will be drawn </td></tr>
+    <tr><td class="paramname">arrSuze</td><td>the length of parameters </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="a5b84ca2f6863eb57595194d58a03155e" name="a5b84ca2f6863eb57595194d58a03155e"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a5b84ca2f6863eb57595194d58a03155e">&#9670;&#160;</a></span>drawHorizontalLine()</h2>
 
@@ -329,6 +374,46 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>main</b> ()</td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>an integer user is prompted </dd></dl>
+
+</div>
+</div>
+<a id="a8b6a5ab6ff5d6b1a53d0dd992bba396c" name="a8b6a5ab6ff5d6b1a53d0dd992bba396c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8b6a5ab6ff5d6b1a53d0dd992bba396c">&#9670;&#160;</a></span>initializeArrays()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void initializeArrays </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>shapeTy</em>[], </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>shapeLen</em>[], </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char</td>          <td class="paramname"><span class="paramname"><em>shapeCh</em>[], </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int</td>          <td class="paramname"><span class="paramname"><em>arrSize</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Fills array shapeTy with values 1 - 3, to indicate which shape type to print Fills array shapeLen with values 1 - 20, the length of the shape Fills array shapeCh with values from the printable ASCII table, i.e. 33 - 126 </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">shapeTy</td><td>a type of shape </td></tr>
+    <tr><td class="paramname">shapeLen</td><td>length of shape to be drawn </td></tr>
+    <tr><td class="paramname">shapeCh</td><td>character that will be drawn </td></tr>
+    <tr><td class="paramname">arrSuze</td><td>the length of parameters </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
