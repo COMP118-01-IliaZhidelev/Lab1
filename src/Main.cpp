@@ -181,7 +181,7 @@ void drawShapes(const int numShapes)
 	std::stringstream ss;
 	ss << "Cannot draw more than " << MAX_SHAPES_AMOUNT;
 	assert(MAX_SHAPES_AMOUNT >= numShapes && ss.str().c_str());
-	srand(time(NULL));
+
 	for (int i = 0; i < numShapes; i++)
 	{
 		const int MAX_LENGTH = 6 - 1;
@@ -251,7 +251,7 @@ int getInt(const char* userPrompt)
 
 
 /**
-* Fills array shapeTy with values 1 - 3, to indicate which shape type to print
+* Fills array shapeTy with values 1 - 4, to indicate which shape type to print
 * Fills array shapeLen with values 1 - 20, the length of the shape
 * Fills array shapeCh with values from the printable ASCII table, i.e. 33 - 126
 * @param shapeTy: a type of shape
@@ -263,7 +263,7 @@ void initializeArrays(int shapeTy[], int shapeLen[], char shapeCh[], const int a
 {
 	for (int i = 0; i < arrSize; i++)
 	{
-		shapeTy[i] = randomIntRange(1,3);
+		shapeTy[i] = randomIntRange(1,4);
 		shapeLen[i] = randomIntRange(1, 20);
 		shapeCh[i] = randomIntRange(33, 126);
 	}
@@ -301,6 +301,13 @@ void drawArrays(int shapeTy[], int shapeLen[], char shapeCh[], const int arrSize
 			int size = shapeLen[i];
 			drawSquare(size, ch);
 		}
+		else if (option == 4)
+		{
+			int width= shapeLen[i];
+			int height= shapeLen[i] + 2;
+			drawRectangle(height,width,ch);
+
+		}
 
 	}
 }
@@ -324,7 +331,7 @@ int main()
 	std::cout << "5) Draw randoms\n";
 	std::cout << "6) Draw 10 random shapes with random character\n";
 	std::cout << "7) Quit\n";
-
+	srand(time(NULL));
 	auto isRunning = true;
 	while (isRunning)
 	{
